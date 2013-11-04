@@ -1,0 +1,21 @@
+/**
+ * Here are some type declarations.  Our program only prints them
+ * at the top of the output to show that we've found them.
+ * In the future, we will be putting them into the symbol table
+ */
+String a, b, c;
+Int one, two, three;
+boolean yes;
+REAL life; //Real life!
+
+/* Program begins! */
+
+life = 3.14;
+one = 1;
+
+if (one < life) { //Optional braces
+	yes = true;
+else {
+	yes = false;
+	two = 2;
+}
