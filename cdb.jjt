@@ -60,23 +60,13 @@ SPECIAL_TOKEN : {
 }
 
 TOKEN: { /* Reserved words */
-    <BEGIN     : "BEGIN">
-  | <END       : "END">
-  | <PROGRAM   : "PROGRAM">
-  | <VAR       : "VAR">
-  | <IF        : "IF">
+    <IF        : "IF">
   | <ELSE      : "ELSE">
   | <TRUE      : "TRUE">
   | <FALSE     : "FALSE">
   | <WHILE     : "WHILE">
   | <FOR       : "FOR">
   | <DO        : "DO">
-  | <INSERT    : "INSERT">
-  | <INTO      : "INTO">
-  | <VALUES    : "VALUES">
-  | <CREATE    : "CREATE">
-  | <REMOVE    : "REMOVE">
-  | <SELECT    : "SELECT">
   | <STRING    : "STRING">
   | <INT       : "INT">
   | <REAL      : "REAL">
@@ -135,9 +125,14 @@ TOKEN: { /*	Error token */
 
 SimpleNode program() : {SimpleNode rootNode;}
 {
-    rootNode = compoundStatement()
+    [
+        statement()
+        (
+            statement()
+        )*
+    ]
     < EOF >
-    { return rootNode; }
+    { return jjtThis; }
 }
 
 SimpleNode compoundStatement() : {}

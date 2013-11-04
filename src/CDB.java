@@ -33,11 +33,46 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
                         boolean jjtc000 = true;
                         jjtree.openNodeScope(jjtn000);SimpleNode rootNode;
     try {
-      rootNode = compoundStatement();
+      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+      case IF:
+      case WHILE:
+      case FOR:
+      case DO:
+      case STRING:
+      case INT:
+      case REAL:
+      case BOOLEAN:
+      case IDENTIFIER:
+        statement();
+        label_1:
+        while (true) {
+          switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+          case IF:
+          case WHILE:
+          case FOR:
+          case DO:
+          case STRING:
+          case INT:
+          case REAL:
+          case BOOLEAN:
+          case IDENTIFIER:
+            ;
+            break;
+          default:
+            jj_la1[0] = jj_gen;
+            break label_1;
+          }
+          statement();
+        }
+        break;
+      default:
+        jj_la1[1] = jj_gen;
+        ;
+      }
       jj_consume_token(0);
       jjtree.closeNodeScope(jjtn000, true);
       jjtc000 = false;
-      {if (true) return rootNode;}
+      {if (true) return jjtn000;}
     } catch (Throwable jjte000) {
       if (jjtc000) {
         jjtree.clearNodeScope(jjtn000);
@@ -77,7 +112,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
       case BOOLEAN:
       case IDENTIFIER:
         statement();
-        label_1:
+        label_2:
         while (true) {
           switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
           case IF:
@@ -92,14 +127,14 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
             ;
             break;
           default:
-            jj_la1[0] = jj_gen;
-            break label_1;
+            jj_la1[2] = jj_gen;
+            break label_2;
           }
           statement();
         }
         break;
       default:
-        jj_la1[1] = jj_gen;
+        jj_la1[3] = jj_gen;
         ;
       }
       jjtree.closeNodeScope(jjtn000, true);
@@ -149,7 +184,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
       jj_consume_token(SEMICOLON);
       break;
     default:
-      jj_la1[2] = jj_gen;
+      jj_la1[4] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -167,7 +202,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
       doLoop();
       break;
     default:
-      jj_la1[3] = jj_gen;
+      jj_la1[5] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -201,7 +236,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         statement();
         break;
       default:
-        jj_la1[4] = jj_gen;
+        jj_la1[6] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -239,7 +274,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         assignmentStatement();
         break;
       default:
-        jj_la1[5] = jj_gen;
+        jj_la1[7] = jj_gen;
         ;
       }
       jj_consume_token(SEMICOLON);
@@ -255,7 +290,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         expression();
         break;
       default:
-        jj_la1[6] = jj_gen;
+        jj_la1[8] = jj_gen;
         ;
       }
       jj_consume_token(SEMICOLON);
@@ -264,7 +299,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         assignmentStatement();
         break;
       default:
-        jj_la1[7] = jj_gen;
+        jj_la1[9] = jj_gen;
         ;
       }
       jj_consume_token(RIGHT_PAREN);
@@ -286,7 +321,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         statement();
         break;
       default:
-        jj_la1[8] = jj_gen;
+        jj_la1[10] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -336,7 +371,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         statement();
         break;
       default:
-        jj_la1[9] = jj_gen;
+        jj_la1[11] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -394,7 +429,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         statement();
         break;
       default:
-        jj_la1[10] = jj_gen;
+        jj_la1[12] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -419,13 +454,13 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
           statement();
           break;
         default:
-          jj_la1[11] = jj_gen;
+          jj_la1[13] = jj_gen;
           jj_consume_token(-1);
           throw new ParseException();
         }
         break;
       default:
-        jj_la1[12] = jj_gen;
+        jj_la1[14] = jj_gen;
         ;
       }
     } catch (Throwable jjte000) {
@@ -473,19 +508,19 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
                                       System.out.println(s + ": " + t.image);
       break;
     default:
-      jj_la1[13] = jj_gen;
+      jj_la1[15] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
-    label_2:
+    label_3:
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case COMMA:
         ;
         break;
       default:
-        jj_la1[14] = jj_gen;
-        break label_2;
+        jj_la1[16] = jj_gen;
+        break label_3;
       }
       jj_consume_token(COMMA);
       t = jj_consume_token(IDENTIFIER);
@@ -696,20 +731,20 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         }
         break;
       default:
-        jj_la1[15] = jj_gen;
+        jj_la1[17] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
       break;
     default:
-      jj_la1[16] = jj_gen;
+      jj_la1[18] = jj_gen;
       ;
     }
   }
 
   static final public void simpleExpression() throws ParseException {
     term();
-    label_3:
+    label_4:
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case PLUS:
@@ -718,8 +753,8 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         ;
         break;
       default:
-        jj_la1[17] = jj_gen;
-        break label_3;
+        jj_la1[19] = jj_gen;
+        break label_4;
       }
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case PLUS:
@@ -804,7 +839,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         }
         break;
       default:
-        jj_la1[18] = jj_gen;
+        jj_la1[20] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -813,7 +848,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
 
   static final public void term() throws ParseException {
     factor();
-    label_4:
+    label_5:
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case STAR:
@@ -822,8 +857,8 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         ;
         break;
       default:
-        jj_la1[19] = jj_gen;
-        break label_4;
+        jj_la1[21] = jj_gen;
+        break label_5;
       }
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case STAR:
@@ -908,7 +943,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
         }
         break;
       default:
-        jj_la1[20] = jj_gen;
+        jj_la1[22] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -966,7 +1001,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
       jj_consume_token(RIGHT_PAREN);
       break;
     default:
-      jj_la1[21] = jj_gen;
+      jj_la1[23] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -1043,7 +1078,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
                        jjtn000.setImage(t.image);
         break;
       default:
-        jj_la1[22] = jj_gen;
+        jj_la1[24] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -1085,23 +1120,18 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
   static public Token jj_nt;
   static private int jj_ntk;
   static private int jj_gen;
-  static final private int[] jj_la1 = new int[23];
+  static final private int[] jj_la1 = new int[25];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
-  static private int[] jj_la1_2;
   static {
       jj_la1_init_0();
       jj_la1_init_1();
-      jj_la1_init_2();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x3c0e2000,0x3c0e2000,0x3c0e2000,0xe0000,0x3c0e2000,0x0,0x18000,0x0,0x3c0e2000,0x3c0e2000,0x3c0e2000,0x3c0e2000,0x4000,0x3c000000,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x18000,0x18000,};
+      jj_la1_0 = new int[] {0xfe200,0xfe200,0xfe200,0xfe200,0xfe200,0xe000,0xfe200,0x0,0x1800,0x0,0xfe200,0xfe200,0xfe200,0xfe200,0x400,0xf0000,0x10000000,0xfc00000,0xfc00000,0x80000000,0x80000000,0x0,0x0,0x1800,0x1800,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x200000,0x200000,0x200000,0x0,0x220000,0x200000,0x1e08400,0x200000,0x220000,0x220000,0x220000,0x220000,0x0,0x0,0x40,0x3f,0x3f,0x100600,0x100600,0x81800,0x81800,0x1e08400,0x0,};
-   }
-   private static void jj_la1_init_2() {
-      jj_la1_2 = new int[] {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};
+      jj_la1_1 = new int[] {0x800,0x800,0x800,0x800,0x800,0x0,0x880,0x800,0x7821,0x800,0x880,0x880,0x880,0x880,0x0,0x0,0x0,0x0,0x0,0x401,0x401,0x206,0x206,0x7821,0x0,};
    }
 
   /** Constructor with InputStream. */
@@ -1122,7 +1152,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -1137,7 +1167,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
     jj_ntk = -1;
     jjtree.reset();
     jj_gen = 0;
-    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
   }
 
   /** Constructor. */
@@ -1154,7 +1184,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -1165,7 +1195,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
     jj_ntk = -1;
     jjtree.reset();
     jj_gen = 0;
-    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
   }
 
   /** Constructor with generated Token Manager. */
@@ -1181,7 +1211,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -1191,7 +1221,7 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
     jj_ntk = -1;
     jjtree.reset();
     jj_gen = 0;
-    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
   }
 
   static private Token jj_consume_token(int kind) throws ParseException {
@@ -1242,12 +1272,12 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
   /** Generate ParseException. */
   static public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[65];
+    boolean[] la1tokens = new boolean[55];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 23; i++) {
+    for (int i = 0; i < 25; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
@@ -1256,13 +1286,10 @@ public class CDB/*@bgen(jjtree)*/implements CDBTreeConstants, CDBConstants {/*@b
           if ((jj_la1_1[i] & (1<<j)) != 0) {
             la1tokens[32+j] = true;
           }
-          if ((jj_la1_2[i] & (1<<j)) != 0) {
-            la1tokens[64+j] = true;
-          }
         }
       }
     }
-    for (int i = 0; i < 65; i++) {
+    for (int i = 0; i < 55; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

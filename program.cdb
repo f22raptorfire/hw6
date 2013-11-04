@@ -12,10 +12,30 @@ REAL life; //Real life!
 
 life = 3.14;
 one = 1;
+yes = true;
 
-if (one < life) { //Optional braces
-	yes = true;
+if (one < life) {
+	c = "This is a compound then";
+	life = life - 3;
+	if (yes) //Optional braces
+		a = "This is a single then";
+	else //Optional braces
+		b = "This is a single else";
+}
 else {
+    c = "This is a compound else";
 	yes = false;
-	two = 2;
+}
+
+while (yes == true) {
+	yes = false;
+}
+
+do {
+	one = one + 3;
+} while (one < 10);
+
+//Our for loop does not support instantiation
+for (three = 0; three == 3; three = three + 1) {
+	life = life * life;
 }

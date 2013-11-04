@@ -78,23 +78,13 @@
   <TD>
    <PRE>
 &lt;DEFAULT&gt; TOKEN : {
-&lt;BEGIN: "BEGIN"&gt;
-| &lt;END: "END"&gt;
-| &lt;PROGRAM: "PROGRAM"&gt;
-| &lt;VAR: "VAR"&gt;
-| &lt;IF: "IF"&gt;
+&lt;IF: "IF"&gt;
 | &lt;ELSE: "ELSE"&gt;
 | &lt;TRUE: "TRUE"&gt;
 | &lt;FALSE: "FALSE"&gt;
 | &lt;WHILE: "WHILE"&gt;
 | &lt;FOR: "FOR"&gt;
 | &lt;DO: "DO"&gt;
-| &lt;INSERT: "INSERT"&gt;
-| &lt;INTO: "INTO"&gt;
-| &lt;VALUES: "VALUES"&gt;
-| &lt;CREATE: "CREATE"&gt;
-| &lt;REMOVE: "REMOVE"&gt;
-| &lt;SELECT: "SELECT"&gt;
 | &lt;STRING: "STRING"&gt;
 | &lt;INT: "INT"&gt;
 | &lt;REAL: "REAL"&gt;
@@ -175,15 +165,15 @@
 <TR>
 <TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod1">program</A></TD>
 <TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
-<TD ALIGN=LEFT VALIGN=BASELINE><A HREF="#prod2">compoundStatement</A> &lt;EOF&gt;</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>( <A HREF="#prod2">statement</A> ( <A HREF="#prod2">statement</A> )* )? &lt;EOF&gt;</TD>
 </TR>
 <TR>
-<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod2">compoundStatement</A></TD>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod3">compoundStatement</A></TD>
 <TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
-<TD ALIGN=LEFT VALIGN=BASELINE>( <A HREF="#prod3">statement</A> ( <A HREF="#prod3">statement</A> )* )?</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>( <A HREF="#prod2">statement</A> ( <A HREF="#prod2">statement</A> )* )?</TD>
 </TR>
 <TR>
-<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod3">statement</A></TD>
+<TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod2">statement</A></TD>
 <TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
 <TD ALIGN=LEFT VALIGN=BASELINE><A HREF="#prod4">loop</A></TD>
 </TR>
@@ -220,22 +210,22 @@
 <TR>
 <TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod8">whileLoop</A></TD>
 <TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
-<TD ALIGN=LEFT VALIGN=BASELINE>&lt;WHILE&gt; &lt;LEFT_PAREN&gt; <A HREF="#prod11">expression</A> &lt;RIGHT_PAREN&gt; ( &lt;LEFT_BRACE&gt; <A HREF="#prod2">compoundStatement</A> &lt;RIGHT_BRACE&gt; | <A HREF="#prod3">statement</A> )</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;WHILE&gt; &lt;LEFT_PAREN&gt; <A HREF="#prod11">expression</A> &lt;RIGHT_PAREN&gt; ( &lt;LEFT_BRACE&gt; <A HREF="#prod3">compoundStatement</A> &lt;RIGHT_BRACE&gt; | <A HREF="#prod2">statement</A> )</TD>
 </TR>
 <TR>
 <TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod9">forLoop</A></TD>
 <TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
-<TD ALIGN=LEFT VALIGN=BASELINE>&lt;FOR&gt; &lt;LEFT_PAREN&gt; ( <A HREF="#prod7">assignmentStatement</A> )? &lt;SEMICOLON&gt; ( <A HREF="#prod11">expression</A> )? &lt;SEMICOLON&gt; ( <A HREF="#prod7">assignmentStatement</A> )? &lt;RIGHT_PAREN&gt; ( &lt;LEFT_BRACE&gt; <A HREF="#prod2">compoundStatement</A> &lt;RIGHT_BRACE&gt; | <A HREF="#prod3">statement</A> )</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;FOR&gt; &lt;LEFT_PAREN&gt; ( <A HREF="#prod7">assignmentStatement</A> )? &lt;SEMICOLON&gt; ( <A HREF="#prod11">expression</A> )? &lt;SEMICOLON&gt; ( <A HREF="#prod7">assignmentStatement</A> )? &lt;RIGHT_PAREN&gt; ( &lt;LEFT_BRACE&gt; <A HREF="#prod3">compoundStatement</A> &lt;RIGHT_BRACE&gt; | <A HREF="#prod2">statement</A> )</TD>
 </TR>
 <TR>
 <TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod10">doLoop</A></TD>
 <TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
-<TD ALIGN=LEFT VALIGN=BASELINE>&lt;DO&gt; ( &lt;LEFT_BRACE&gt; <A HREF="#prod2">compoundStatement</A> &lt;RIGHT_BRACE&gt; | <A HREF="#prod3">statement</A> ) &lt;WHILE&gt; &lt;LEFT_PAREN&gt; <A HREF="#prod11">expression</A> &lt;RIGHT_PAREN&gt; &lt;SEMICOLON&gt;</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;DO&gt; ( &lt;LEFT_BRACE&gt; <A HREF="#prod3">compoundStatement</A> &lt;RIGHT_BRACE&gt; | <A HREF="#prod2">statement</A> ) &lt;WHILE&gt; &lt;LEFT_PAREN&gt; <A HREF="#prod11">expression</A> &lt;RIGHT_PAREN&gt; &lt;SEMICOLON&gt;</TD>
 </TR>
 <TR>
 <TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod5">ifStatement</A></TD>
 <TD ALIGN=CENTER VALIGN=BASELINE>::=</TD>
-<TD ALIGN=LEFT VALIGN=BASELINE>&lt;IF&gt; &lt;LEFT_PAREN&gt; <A HREF="#prod11">expression</A> &lt;RIGHT_PAREN&gt; ( &lt;LEFT_BRACE&gt; <A HREF="#prod2">compoundStatement</A> &lt;RIGHT_BRACE&gt; | <A HREF="#prod3">statement</A> ) ( &lt;ELSE&gt; ( &lt;LEFT_BRACE&gt; <A HREF="#prod2">compoundStatement</A> &lt;RIGHT_BRACE&gt; | <A HREF="#prod3">statement</A> ) )?</TD>
+<TD ALIGN=LEFT VALIGN=BASELINE>&lt;IF&gt; &lt;LEFT_PAREN&gt; <A HREF="#prod11">expression</A> &lt;RIGHT_PAREN&gt; ( &lt;LEFT_BRACE&gt; <A HREF="#prod3">compoundStatement</A> &lt;RIGHT_BRACE&gt; | <A HREF="#prod2">statement</A> ) ( &lt;ELSE&gt; ( &lt;LEFT_BRACE&gt; <A HREF="#prod3">compoundStatement</A> &lt;RIGHT_BRACE&gt; | <A HREF="#prod2">statement</A> ) )?</TD>
 </TR>
 <TR>
 <TD ALIGN=RIGHT VALIGN=BASELINE><A NAME="prod6">declarationStatement</A></TD>

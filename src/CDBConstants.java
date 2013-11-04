@@ -13,117 +13,97 @@ public interface CDBConstants {
   /** RegularExpression Id. */
   int MULTI_LINE_COMMENT = 8;
   /** RegularExpression Id. */
-  int BEGIN = 9;
+  int IF = 9;
   /** RegularExpression Id. */
-  int END = 10;
+  int ELSE = 10;
   /** RegularExpression Id. */
-  int PROGRAM = 11;
+  int TRUE = 11;
   /** RegularExpression Id. */
-  int VAR = 12;
+  int FALSE = 12;
   /** RegularExpression Id. */
-  int IF = 13;
+  int WHILE = 13;
   /** RegularExpression Id. */
-  int ELSE = 14;
+  int FOR = 14;
   /** RegularExpression Id. */
-  int TRUE = 15;
+  int DO = 15;
   /** RegularExpression Id. */
-  int FALSE = 16;
+  int STRING = 16;
   /** RegularExpression Id. */
-  int WHILE = 17;
+  int INT = 17;
   /** RegularExpression Id. */
-  int FOR = 18;
+  int REAL = 18;
   /** RegularExpression Id. */
-  int DO = 19;
+  int BOOLEAN = 19;
   /** RegularExpression Id. */
-  int INSERT = 20;
+  int COLON = 20;
   /** RegularExpression Id. */
-  int INTO = 21;
+  int EQUALS = 21;
   /** RegularExpression Id. */
-  int VALUES = 22;
+  int EE = 22;
   /** RegularExpression Id. */
-  int CREATE = 23;
+  int NE = 23;
   /** RegularExpression Id. */
-  int REMOVE = 24;
+  int LT = 24;
   /** RegularExpression Id. */
-  int SELECT = 25;
+  int LE = 25;
   /** RegularExpression Id. */
-  int STRING = 26;
+  int GT = 26;
   /** RegularExpression Id. */
-  int INT = 27;
+  int GE = 27;
   /** RegularExpression Id. */
-  int REAL = 28;
+  int COMMA = 28;
   /** RegularExpression Id. */
-  int BOOLEAN = 29;
+  int DOT = 29;
   /** RegularExpression Id. */
-  int COLON = 30;
+  int SEMICOLON = 30;
   /** RegularExpression Id. */
-  int EQUALS = 31;
+  int PLUS = 31;
   /** RegularExpression Id. */
-  int EE = 32;
+  int MINUS = 32;
   /** RegularExpression Id. */
-  int NE = 33;
+  int STAR = 33;
   /** RegularExpression Id. */
-  int LT = 34;
+  int SLASH = 34;
   /** RegularExpression Id. */
-  int LE = 35;
+  int QUOTE = 35;
   /** RegularExpression Id. */
-  int GT = 36;
+  int DOUBLE_QUOTE = 36;
   /** RegularExpression Id. */
-  int GE = 37;
+  int LEFT_PAREN = 37;
   /** RegularExpression Id. */
-  int COMMA = 38;
+  int RIGHT_PAREN = 38;
   /** RegularExpression Id. */
-  int DOT = 39;
+  int LEFT_BRACE = 39;
   /** RegularExpression Id. */
-  int SEMICOLON = 40;
+  int RIGHT_BRACE = 40;
   /** RegularExpression Id. */
-  int PLUS = 41;
+  int AND = 41;
   /** RegularExpression Id. */
-  int MINUS = 42;
+  int OR = 42;
   /** RegularExpression Id. */
-  int STAR = 43;
+  int IDENTIFIER = 43;
   /** RegularExpression Id. */
-  int SLASH = 44;
+  int STRING_LIT = 44;
   /** RegularExpression Id. */
-  int QUOTE = 45;
+  int INT_LIT = 45;
   /** RegularExpression Id. */
-  int DOUBLE_QUOTE = 46;
+  int REAL_LIT = 46;
   /** RegularExpression Id. */
-  int LEFT_PAREN = 47;
+  int LETTER = 47;
   /** RegularExpression Id. */
-  int RIGHT_PAREN = 48;
+  int DIGIT = 48;
   /** RegularExpression Id. */
-  int LEFT_BRACE = 49;
+  int SIGN = 49;
   /** RegularExpression Id. */
-  int RIGHT_BRACE = 50;
+  int UNSIGNED_NUMBER = 50;
   /** RegularExpression Id. */
-  int AND = 51;
+  int WHOLE = 51;
   /** RegularExpression Id. */
-  int OR = 52;
+  int FRACTION = 52;
   /** RegularExpression Id. */
-  int IDENTIFIER = 53;
+  int EXPONENT = 53;
   /** RegularExpression Id. */
-  int STRING_LIT = 54;
-  /** RegularExpression Id. */
-  int INT_LIT = 55;
-  /** RegularExpression Id. */
-  int REAL_LIT = 56;
-  /** RegularExpression Id. */
-  int LETTER = 57;
-  /** RegularExpression Id. */
-  int DIGIT = 58;
-  /** RegularExpression Id. */
-  int SIGN = 59;
-  /** RegularExpression Id. */
-  int UNSIGNED_NUMBER = 60;
-  /** RegularExpression Id. */
-  int WHOLE = 61;
-  /** RegularExpression Id. */
-  int FRACTION = 62;
-  /** RegularExpression Id. */
-  int EXPONENT = 63;
-  /** RegularExpression Id. */
-  int ERROR = 64;
+  int ERROR = 54;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -141,10 +121,6 @@ public interface CDBConstants {
     "\"/*\"",
     "<token of kind 7>",
     "\"*/\"",
-    "\"BEGIN\"",
-    "\"END\"",
-    "\"PROGRAM\"",
-    "\"VAR\"",
     "\"IF\"",
     "\"ELSE\"",
     "\"TRUE\"",
@@ -152,12 +128,6 @@ public interface CDBConstants {
     "\"WHILE\"",
     "\"FOR\"",
     "\"DO\"",
-    "\"INSERT\"",
-    "\"INTO\"",
-    "\"VALUES\"",
-    "\"CREATE\"",
-    "\"REMOVE\"",
-    "\"SELECT\"",
     "\"STRING\"",
     "\"INT\"",
     "\"REAL\"",

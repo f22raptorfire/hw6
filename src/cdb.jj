@@ -64,23 +64,13 @@ SPECIAL_TOKEN : {
 }
 
 TOKEN: { /* Reserved words */
-    <BEGIN     : "BEGIN">
-  | <END       : "END">
-  | <PROGRAM   : "PROGRAM">
-  | <VAR       : "VAR">
-  | <IF        : "IF">
+    <IF        : "IF">
   | <ELSE      : "ELSE">
   | <TRUE      : "TRUE">
   | <FALSE     : "FALSE">
   | <WHILE     : "WHILE">
   | <FOR       : "FOR">
   | <DO        : "DO">
-  | <INSERT    : "INSERT">
-  | <INTO      : "INTO">
-  | <VALUES    : "VALUES">
-  | <CREATE    : "CREATE">
-  | <REMOVE    : "REMOVE">
-  | <SELECT    : "SELECT">
   | <STRING    : "STRING">
   | <INT       : "INT">
   | <REAL      : "REAL">
@@ -145,14 +135,19 @@ SimpleNode program() : {/*@bgen(jjtree) program */
 {/*@bgen(jjtree) program */
     try {
 /*@egen*/
-    rootNode = compoundStatement()
+    [
+        statement()
+        (
+            statement()
+        )*
+    ]
     < EOF >/*@bgen(jjtree)*/
     {
       jjtree.closeNodeScope(jjtn000, true);
       jjtc000 = false;
     }
 /*@egen*/
-    { return rootNode; }/*@bgen(jjtree)*/
+    { return jjtn000; }/*@bgen(jjtree)*/
     } catch (Throwable jjte000) {
       if (jjtc000) {
         jjtree.clearNodeScope(jjtn000);
